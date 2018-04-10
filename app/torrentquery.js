@@ -1,29 +1,34 @@
-
+const sendsms = require('./sendsms');
 const PirateBay = require('thepiratebay');
-module.exports = function(name, email){
-    var foundFlag = false;
 
-    function search(name, email){
-        console.log('hrere');
-        return setInterval( ()=>{
-            PirateBay.search(name, {
-                category: 'all'
-            })
-            .then(results => {
-                let list = results.map(result => result.name);
+module.exports = function(name, phone){
+
+    var foundFlag = false;
+    function search(name, phone){
+        // console.log(name, phone);
+        console.log(`=> searching ...`);
+        PirateBay.search(name, {
+            category: 'all'
+        })
+        .then(results => {
+            let list = [...results.map( result => result.name)];
+            if(list.length > 0){
                 let regex = new RegExp(name, 'gi');
-                if(list){
-                    list.foreach((item) => {
-                        if (item.match(regex)) {
-                            foundFlag = true;
-                            // clearInterval(keepCalling);
-                            return;
-                        }
-                    })
+                console.log(list[3]);
+                for (const item of list) {
+                    if (item.match(regex)) {
+                        foundFlag = true;
+                        console.log('Found!!');
+                        console.log('Sending sms to ' + phone);
+                        sendsms(name, phone);
+                        return;
+                    }
                 }
-            })
-            .catch(err => console.log(err))
-        }, 20);
+            }
+        })
+        .catch(err => console.log(err))
     }
-    let keepCalling = search(name, email);
+    console.log(`** Search started for ${name} **`);
+    search(name,phone);
+    setInterval( search.bind(null,name, phone), 10000);
 }

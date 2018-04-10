@@ -1,8 +1,63 @@
-<h1> What torrent you want to be notified about ?</h1>
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <style>
+        body {
+    text-align: center;
+        }
+        body {
+            background: #193549;
+            color: white;
+            font-family: 'helvetica neue', sans-serif;
+            font-weight: 100;
+            font-size: 45px;    
+        }
+        h5 {
+            font-size: 18px;
+        }
 
 
-<form action="/save" method="get">
-    <input type="text" name="name" id="name">
-    <input type="email" name="email" id="email">
-    <input type="submit" value="Submit">
-</form>
+        :focus{outline: none;}
+
+        .col-3{float: center; width: auto; margin: 40px 3%; position: center;} /* necessary to give position: relative to parent. */
+        input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 50%; box-sizing: border-box; letter-spacing: 1px;}
+
+        input[type="email"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 50%; box-sizing: border-box; letter-spacing: 1px;}
+
+
+        .effect-2{border: 0; padding: 7px 15px; border-bottom: 1px solid #ccc;}
+
+        .effect-2 ~ .focus-border{position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+        .effect-2:focus ~ .focus-border{width: 100%; transition: 0.4s; left: 0;}
+
+    </style>
+</head>
+<body>
+    <h3>Torrent Notifier</h3>
+    
+    <form action="/save" method="get">
+        <div class="col-3">
+            <label for="name"><h5>What torrent you want to be notified about?</h5></label>      
+                <input class="effect-2" name ="name" id="name" type="text" placeholder="Enter keywords" >
+                <span class="focus-border"></span>
+        </div>
+
+        <div class="col-3">
+            <label for="email"><h5>Phone number to be notified on</h5></label>      
+                <input class="effect-2" name ="phone" id="phone" type="number" placeholder="704*******" required>
+                <span class="focus-border"></span>
+            </div>
+
+        <input type="submit" value="submit">
+    </form>
+    <br>
+    <h5>Description: This app will keep searching the torrent sites for your keyword every 10 seconds <br>
+        and will notify you via sms whether the torrent is arrived on your provided phone number</h5>
+   <script src="#"></script>
+</body>
+</html>

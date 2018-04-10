@@ -8,8 +8,7 @@ const client = require('twilio')(accountSid, authToken);
 module.exports = function(name, phone){
     client.messages.create(
         {
-            // to: `+91${phone}`,
-            to: `+917042992097`,
+            to: `+91${phone}`,
             from: process.env.MYPHONE,
             body: `Your torrent search for ${name} is now available!!`,
         },

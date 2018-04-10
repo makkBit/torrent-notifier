@@ -1,5 +1,66 @@
-<h1> Success</h1>
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <style>
+        /*  */
+        body {
+            background: #193549;
+            color: white;
+            font-family: 'helvetica neue', sans-serif;
+            padding-top: 10%;
+            font-weight: 100;
+            font-size: 30px;
+            text-align: center;
+        }
+        .thin { font-weight: 300; }
+        .thick { font-weight: 900; }
 
-<h4> we 'll notify as soon as it arrives. </h4>
+        a {
+        text-transform: uppercase;
+        font-size: 36px;
+        color: white;
+        text-decoration: none;
+        position: relative;
+        display: block;
+        }
+        .link-4 {
+            display: inline-block;
+            margin: 2em
+        }
 
-<a href="/">back to home</a>`
+        .link-4 a:before {
+            content: '';
+            border-bottom: solid 1px white;
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+        }
+        
+        .link-4 a:hover:before {
+            border-bottom: double thin #5CAAEF;
+        }
+        
+        .link-4 a:before {
+            -webkit-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+    <h4>Success</h4>
+    <h4>We will notify you as soon as it arrives</h4>
+
+    <div class="link-4">
+        <a href="/">
+            <span class="thin">Back to </span><span class="thick">home</span>
+        </a>   
+    </div>
+    
+   <script src="#"></script>
+</body>
+</html>

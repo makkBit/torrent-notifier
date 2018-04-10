@@ -1,4 +1,5 @@
 
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -14,7 +15,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/save', function(req, res){
-    query(req.query.name, req.query.email);
+    query(req.query.name, req.query.phone);
     res.sendFile(path.join(__dirname + '/public' + '/success.html'));
 });
 
